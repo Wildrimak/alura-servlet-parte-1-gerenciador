@@ -9,22 +9,20 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/novaEmpresa")
 public class NovaEmpresaServlet extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("Deu certo!");
-		
+
 		String nome = request.getParameter("nome");
-		
-		response.getWriter()
-				.println("" + 
-						"<html>" + 
-						"<body>" + 
-						"<p>Empresa " + nome + " cadastrada com sucesso!</p>" + 
-						"</body>" + 
-						"</html>"
-						);
+		Empresa empresa = new Empresa();
+		empresa.setNome(nome);
+		Banco banco = new Banco();
+		banco.adiciona(empresa);
+
+		response.getWriter().println("<html>" + "<body>" + "<p>Empresa " + nome + " cadastrada com sucesso!</p>"
+				+ "</body>" + "</html>");
 	}
 
 }
