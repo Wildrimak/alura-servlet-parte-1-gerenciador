@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = "/oi")
+@WebServlet(urlPatterns = "/")
 public class OiMundoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -20,7 +20,7 @@ public class OiMundoServlet extends HttpServlet {
 
 		out.println("<html>");
 		out.println("<body>");
-		out.println("<p>Oi Wildrimak, vc criou o seu servlet!</p>");
+		out.println("<a href=\"listaEmpresas\"> Listar empresas </a>");
 		out.println("</body>");
 		out.println("</html>");
 
