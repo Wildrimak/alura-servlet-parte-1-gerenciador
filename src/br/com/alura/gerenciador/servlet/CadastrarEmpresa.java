@@ -25,17 +25,14 @@ public class CadastrarEmpresa extends HttpServlet {
 		empresa.setNome(nome);
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
-
-		request.setAttribute("nomeDaEmpresa", empresa.getNome());
-		RequestDispatcher rd = request.getRequestDispatcher("novaEmpresaCriada.jsp");
-		rd.forward(request, response);
+ 		
+		response.sendRedirect("listarEmpresas");
 	}
 	
-	
-	/*Teoricamente era pra funcionar, no entanto está descontinuado*/
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher requestDispatcher = req.getRequestDispatcher("formNovaEmpresa.html");
-		requestDispatcher.forward(req, resp);
+		String path = "empresa/cadastrarEmpresa.jsp";
+		RequestDispatcher rd = req.getRequestDispatcher(path);
+		rd.forward(req, resp);
 	}
 
 }
