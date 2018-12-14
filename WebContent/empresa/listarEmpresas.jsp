@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:url var="linkCadastrarEmpresa" value="/empresa/cadastrarEmpresa.jsp" />
+<c:url var="linkAlterarEmpresa" value="alterarEmpresa"></c:url>
 
 <!DOCTYPE html>
 <html>
@@ -21,7 +22,11 @@
 
 	<ol>
 		<c:forEach var="empresa" items="${empresas}">
-			<li>${empresa.nome} - <fmt:formatDate value="${empresa.dataAbertura}" pattern="dd/MM/yyyy"/> </li>
+			<li>
+			${empresa.nome} - <fmt:formatDate value="${empresa.dataAbertura}" pattern="dd/MM/yyyy"/> 
+			- <a href="${linkAlterarEmpresa}?id=${empresa.id}">Alterar</a>
+			
+			</li>
 		</c:forEach>
 	</ol>
 
